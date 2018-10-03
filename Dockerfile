@@ -1,9 +1,7 @@
 FROM centos
+VOLUME /var/lib/mysql/
 RUN yum install -y epel-release
 RUN yum install -y mariadb-server
-RUN chown -R mysql /var/lib/mysql
-RUN chgrp -R mysql /var/lib/mysql
-RUN mysql_install_db --user=mysql --ldata=/var/lib/mysql
 RUN yum install -y httpd
 RUN yum install -y php php-mysql php-mbstring php-mcrypt
 ADD https://files.phpmyadmin.net/phpMyAdmin/4.0.10.20/phpMyAdmin-4.0.10.20-all-languages.tar.gz /var/www/html/phpmyadmin.tar.gz
